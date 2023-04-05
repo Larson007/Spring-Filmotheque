@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+body {
+  font-family: 'Righteous', cursive;
+  background-image: repeating-linear-gradient(135deg, rgba(189,189,189,0.1) 0px, rgba(189,189,189,0.1) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
+}
+
+/* Un peu de CSS pour la barre de navigation */
+header li{
+  padding : 20px;
+  font-size: 1.5rem;
+}
+
+header li a{
+  text-decoration: none;
+  color: #84acfc !important;
+}
+
+header li a.router-link-active{
+  font-weight: bold;
+  text-decoration: underline;
+  color: #ee727a !important;
+}
+
+.partcipants-roles {
+background-image: repeating-radial-gradient(circle at center center, transparent 0px, transparent 13px,rgba(0,0,0,0.03) 13px, rgba(0,0,0,0.03) 24px,transparent 24px, transparent 62px,rgba(0,0,0,0.03) 62px, rgba(0,0,0,0.03) 96px),repeating-radial-gradient(circle at center center, rgb(255,255,255) 0px, rgb(255,255,255) 14px,rgb(255,255,255) 14px, rgb(255,255,255) 18px,rgb(255,255,255) 18px, rgb(255,255,255) 28px,rgb(255,255,255) 28px, rgb(255,255,255) 32px); background-size: 21px 21px;
+}
+
+.title {
+  text-decoration: none;
+  color: black;
+}
