@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,15 +28,16 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 @Entity
-@JsonIdentityInfo(
-		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property = "id")
+//@JsonIdentityInfo(
+//		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+//		  property = "id")
 public class Film {
 
 	@Id
@@ -62,11 +64,7 @@ public class Film {
 	@ManyToMany
 	private List<Genre> genre = new ArrayList<>();
 	
-	// TODO
-	@ManyToMany(cascade = {CascadeType.MERGE})
-    @JoinTable( name = "films_acteurs",
-    joinColumns = @JoinColumn( name = "film_id" ),
-    inverseJoinColumns = @JoinColumn( name = "acteur_id" ) )
+	@ManyToMany
 	private List<Participant> acteurs = new ArrayList<>();
 
 

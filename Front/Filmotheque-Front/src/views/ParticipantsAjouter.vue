@@ -75,12 +75,15 @@ if (photo.value === null || photo.value === '') {
         naissance: naissance.value,
         biographie: biographie.value
     }
+
+    console.log({ body });
     // 2 - on lance la requête
     await axios.post(URL, body);
 
     // 3 on recharge les personnes + on met à jour le HTML
     // on vide le champs de saisi après la création 
-    prenom.value = nom.value = acteur.value = realisateur.value = photo = naissance.value = biographie.value = '';
+    prenom.value = nom.value = acteur.value = realisateur.value = naissance.value = biographie.value = '';
+    photo = '';
     init();
 }
 

@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.mbadev.filmotheque.bo.Film;
+import fr.mbadev.filmotheque.bo.Participant;
 import fr.mbadev.filmotheque.service.FilmService;
+import fr.mbadev.filmotheque.service.ParticipantService;
 import net.bytebuddy.asm.Advice.Return;
 
 @RestController
@@ -25,6 +27,7 @@ public class FilmRestController {
 
 	@Autowired
 	private FilmService filmService;
+
 
 	// READ
 	@GetMapping
@@ -48,7 +51,7 @@ public class FilmRestController {
 
 	// UPDATE
 	@PutMapping("/{idFilmAModifier}")
-	public void updatePersonne(@PathVariable Integer idFilmAModifier, @RequestBody Film film) throws Exception {
+	public void updateFilm(@PathVariable Integer idFilmAModifier, @RequestBody Film film) throws Exception {
 		if (idFilmAModifier != null) {
 			film.setId(idFilmAModifier);
 			filmService.saveFilm(film);

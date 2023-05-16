@@ -63,7 +63,7 @@ onMounted(() => {
                         <div id="accordion-realisateur-collapseOne" class="accordion-collapse collapse show"
                             aria-labelledby="accordion-realisateur-headingOne">
                             <div class="accordion-body">
-                                <div class="col-2 mb-4">
+                                <div class="col-3 mb-4">
                                     <template v-if="film.realisateur">
                                         <RouterLink :to="'/participants/' + film.realisateur.id"
                                             class="text-decoration-none">
@@ -100,14 +100,14 @@ onMounted(() => {
                             <div class="accordion-body">
                                 <div class="row col-12">
                                     <template v-for="participant in film.acteurs">
-                                        <div class="col-2 mb-4">
+                                        <div class="col-3 mb-4">
                                             <RouterLink :to="'/participants/' + participant.id"
                                                 class="text-decoration-none">
                                                 <div class="card rounded">
                                                     <img :src="'/images/participants/' + participant.photo"
                                                         :alt="participant.prenom + ' ' + participant.nom"
                                                         class="card-img rounded-0 img-fluid">
-                                                    <div class="card-body text-center ">
+                                                    <div class="card-body text-center">
                                                         <p class="card-title ">{{ participant.prenom + ' ' + participant.nom
                                                         }}</p>
                                                     </div>

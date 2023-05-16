@@ -64,17 +64,11 @@ async function creerFilm() {
 
     console.log({ body });
 
+
     await axios.post(URL_FILMS, body);
 
-    titre.value = '';
-    synopsis.value = '';
-    sortie.value = '';
-    duree.value = '';
-    realisateur.value = '';
-    acteurs.value = [];
-    genre.value = [];
-    affiche = '';
-
+    titre.value = synopsis.value = sortie.value = duree.value = realisateur.value =  affiche = '';
+    acteurs.value = genre.value = [];
     init();
 
 }
@@ -132,7 +126,7 @@ onMounted(() => {
                 <div class="mb-3">
                     <label for="acteurs" class="form-label">Acteurs</label>
                     <select class="form-control" v-model="acteurs" multiple id="acteurs">
-                        <template v-for="acteurs in listeParticipants">
+                        <template v-for="acteurs in listeParticipants" v-bind:key="acteurs.id">
                             <option :value="acteurs" v-if="acteurs.acteur === true">{{
                                 acteurs.prenom }} {{ acteurs.nom }}</option>
                         </template>

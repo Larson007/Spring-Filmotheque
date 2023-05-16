@@ -3,6 +3,7 @@ package fr.mbadev.filmotheque.bo;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -23,42 +24,53 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 @Entity
-@JsonIdentityInfo(
-		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property = "id")
+//@JsonIdentityInfo(
+//		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+//		  property = "id")
 public class Participant {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String prenom;
+	
 	private String nom;
+	
 	private boolean acteur;
+	
 	private boolean realisateur;
+	
 	private String photo;
+	
 	private Date naissance;
+	
 	@Column(columnDefinition = "text")
 	private String biographie;
-
-	// TODO
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable( name = "films_acteurs",
-//    joinColumns = @JoinColumn( name = "acteur_id" ),
-//    inverseJoinColumns = @JoinColumn( name = "film_id" ) )
-//    private List<Film> films = new ArrayList<>();
-    
-    // TODO
-    @ManyToMany(mappedBy = "acteurs")
+	    
+    @ManyToMany
     private List<Film> films = new ArrayList<>();
     
+//	public void addFilm(Film film) {
+//		this.films.add(film);
+//		film.getActeurs().add(this);
+//	}
+
 	
-   
+//	public void removeFilm(Film film) {
+//		this.films.remove(film);
+//		film.getActeurs().remove(this);
+//	}
+
 
 }
